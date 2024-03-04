@@ -9,8 +9,7 @@ class LocaleString extends Translations {
         //ENGLISH LANGUAGE
         'en_US': {
           nameName: 'You first',
-          noOrderFee: 'We don’t charge you order fees. We don’t spy on you. We just help you enjoy your meals',
-          "":"",
+          noOrderFee: 'We don’t charge you order fees. We don’t spy on you. We just help you enjoy your meals'
         },
       };
 }
