@@ -114,6 +114,114 @@ class RegisterTextFieldWidget extends StatelessWidget {
   }
 }
 
+
+class SearchTextFieldWidget extends StatelessWidget {
+  final IconButton? suffixIcon;
+  final IconButton? prefixIcon;
+  final Widget? suffix;
+  final Widget? prefix;
+  final Color? bgColor;
+  final String? Function(String?)? validator;
+  final TextInputType? keyboardType;
+  final TextInputAction? textInputAction;
+  final String? hint;
+  final Iterable<String>? autofillHints;
+  final ValueChanged<String>? onChanged;
+  final TextEditingController? controller;
+  final TextInputFormatter? digitValue;
+  final bool? readOnly;
+  final dynamic value = 0;
+  final dynamic minLines;
+  final dynamic maxLines;
+  final List<TextInputFormatter>? inputFormatters;
+  final bool? obscureText;
+  final VoidCallback? onTap;
+  final length;
+  final color;
+
+  const SearchTextFieldWidget({
+    Key? key,
+    this.suffixIcon,
+    this.prefixIcon,
+    this.onChanged,
+    this.hint,
+    this.keyboardType,
+    this.textInputAction,
+    this.controller,
+    this.bgColor,
+    this.validator,
+    this.suffix,
+    this.autofillHints,
+    this.prefix,
+    this.minLines = 1,
+    this.maxLines = 1,
+    this.obscureText = false,
+    this.readOnly = false,
+    this.onTap,
+    this.length,
+    this.digitValue,
+    this.color,
+    this.inputFormatters,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return TextFormField(
+      style: const TextStyle(color: Color(0xFF384953)),
+      onTap: onTap,
+      onChanged: onChanged,
+      readOnly: readOnly!,
+      controller: controller,
+      obscureText: hint == hint ? obscureText! : false,
+      autofillHints: autofillHints,
+      validator: validator,
+      keyboardType: keyboardType,
+      textInputAction: textInputAction,
+      autovalidateMode: AutovalidateMode.onUserInteraction,
+      minLines: minLines,
+      maxLines: maxLines,
+      cursorColor: const Color(0xff2D2D2D),
+      inputFormatters: [
+        ...inputFormatters ?? [],
+        LengthLimitingTextInputFormatter(length),
+        if (digitValue != null) digitValue!
+      ],
+      decoration: InputDecoration(
+          hintText: hint,
+          focusColor: const Color(0xFF384953),
+          hintStyle: GoogleFonts.poppins(
+            color: const Color(0xFF595959),
+            textStyle: GoogleFonts.poppins(
+              color: const Color(0xFF384953),
+              fontSize: 14,
+              fontWeight: FontWeight.w300,
+            ),
+            fontSize: 14,
+            // fontFamily: 'poppins',
+            fontWeight: FontWeight.w300,
+          ),
+          filled: true,
+          fillColor: Colors.white,
+          contentPadding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+          // .copyWith(top: maxLines! > 4 ? AddSize.size18 : 0),
+          focusedBorder: OutlineInputBorder(
+            borderSide: const BorderSide(color: Color(0xFF2D2D2D)),
+            borderRadius: BorderRadius.circular(6.0),
+          ),
+          enabledBorder: const OutlineInputBorder(
+              borderSide: BorderSide(color: Color(0xFF2D2D2D)),
+              borderRadius: BorderRadius.all(Radius.circular(6.0))),
+          border: OutlineInputBorder(
+              borderSide: const BorderSide(color: Color(0xFF2D2D2D), width: 1.0),
+              borderRadius: BorderRadius.circular(6.0)),
+          suffixIcon: suffixIcon,
+          suffix: suffix,
+          prefix: prefix,
+          prefixIcon: prefixIcon),
+    );
+  }
+}
+
 class CommonButtonBlue extends StatelessWidget {
   final String title;
   final VoidCallback? onPressed;

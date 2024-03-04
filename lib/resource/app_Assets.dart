@@ -14,4 +14,5 @@ class AppAssets {
   static const String linkedin = "assets/images/linkedin.png";
   static const String rating = "assets/images/rating.png";
   static const String ourExpert = "assets/images/our_expert.png";
+  static const String nutrition = "assets/images/nutrition.png";
 }

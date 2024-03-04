@@ -6,6 +6,8 @@ import 'package:yellowsquash_app/resource/app_Assets.dart';
 import 'package:yellowsquash_app/screens/program_screens/program_details_screen.dart';
 import 'package:yellowsquash_app/screens/program_screens/program_list_screen.dart';
 import '../controller/navbarcontroller.dart';
+import 'blog_screen/blog_list_screen.dart';
+import 'expert_screen/expert_list_screen.dart';
 
 class HomePageScreen extends StatefulWidget {
   const HomePageScreen({super.key});
@@ -169,33 +171,38 @@ class _HomePageScreenState extends State<HomePageScreen> {
               SizedBox(
                 height: size.height * .02,
               ),
-              const Row(
+               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
+                  const Text(
                     "Top Experts",
                     style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.w600,
                     ),
                   ),
-                  Row(
-                    children: [
-                      Text(
-                        "View All",
-                        style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.w600,
-                            color: Color(0xff22C55E),
-                            decoration: TextDecoration.underline,
-                            decorationColor: Color(0xff22C55E)),
-                      ),
-                      Icon(
-                        Icons.arrow_forward_ios_rounded,
-                        color: Color(0xff22C55E),
-                        size: 14,
-                      )
-                    ],
+                  GestureDetector(
+                    onTap: (){
+                      Get.toNamed(ExpertListScreen.expertListScreen);
+                    },
+                    child: const Row(
+                      children: [
+                        Text(
+                          "View All",
+                          style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.w600,
+                              color: Color(0xff22C55E),
+                              decoration: TextDecoration.underline,
+                              decorationColor: Color(0xff22C55E)),
+                        ),
+                        Icon(
+                          Icons.arrow_forward_ios_rounded,
+                          color: Color(0xff22C55E),
+                          size: 14,
+                        )
+                      ],
+                    ),
                   ),
                 ],
               ),
@@ -252,10 +259,10 @@ class _HomePageScreenState extends State<HomePageScreen> {
               SizedBox(
                 height: size.height * .02,
               ),
-              const Row(
+               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
+                  const Text(
                     "Latest Blogs",
                     style: TextStyle(
                       fontSize: 18,
@@ -264,16 +271,21 @@ class _HomePageScreenState extends State<HomePageScreen> {
                   ),
                   Row(
                     children: [
-                      Text(
-                        "View All",
-                        style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.w600,
-                            color: Color(0xff22C55E),
-                            decoration: TextDecoration.underline,
-                            decorationColor: Color(0xff22C55E)),
+                      GestureDetector(
+                        onTap: (){
+                          Get.toNamed(BlogListScreen.blogsListScreen);
+                        },
+                        child: const Text(
+                          "View All",
+                          style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.w600,
+                              color: Color(0xff22C55E),
+                              decoration: TextDecoration.underline,
+                              decorationColor: Color(0xff22C55E)),
+                        ),
                       ),
-                      Icon(
+                      const Icon(
                         Icons.arrow_forward_ios_rounded,
                         color: Color(0xff22C55E),
                         size: 14,

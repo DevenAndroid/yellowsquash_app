@@ -4,6 +4,8 @@ class AppTheme {
   static const Color primaryColor = Color(0xff22C55E);
   static const Color shadowColor = Color(0xffA7A7A7);
   static const Color headlineColor = Color(0xff2D2D2D);
+  static const Color subTitleColor = Color(0xff595959);
+  static const Color yellowColor = Color(0xffF9D121);
   static const Color newprimaryColor = Color(0xffDAE3FF);
   static Color newBackgroundColor = Colors.grey.shade50;
   static const Color addColor = Color(0xffEBF0FF);
