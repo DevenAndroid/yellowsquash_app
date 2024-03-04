@@ -1,5 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:dotted_border/dotted_border.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -7,6 +10,7 @@ import 'package:intl/intl.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:yellowsquash_app/resource/app_Assets.dart';
 import 'package:yellowsquash_app/widgets/apptheme.dart';
+import 'package:yellowsquash_app/widgets/common_text_field.dart';
 
 class ProgramScreenDetails extends StatefulWidget {
   const ProgramScreenDetails({super.key});
@@ -195,10 +199,14 @@ class _ProgramScreenDetailsState extends State<ProgramScreenDetails> {
                             child: DropdownButton<String>(
                               hint: const Text(
                                 "Select Plan",
-                                style: TextStyle(color: Colors.grey,fontSize: 13),
+                                style: TextStyle(color: Colors.grey, fontSize: 13),
                               ),
                               padding: EdgeInsets.symmetric(horizontal: size.height * .005),
-                              icon: const Icon(Icons.keyboard_arrow_down_rounded,color: Colors.grey,size: 20,),
+                              icon: const Icon(
+                                Icons.keyboard_arrow_down_rounded,
+                                color: Colors.grey,
+                                size: 20,
+                              ),
                               value: plan,
                               isExpanded: true,
                               onChanged: (newValue) {
@@ -639,7 +647,8 @@ class _ProgramScreenDetailsState extends State<ProgramScreenDetails> {
                   borderRadius: BorderRadius.circular(6),
                 )),
             child: const Center(
-                child: Text("Subscribe Now", style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16, color: Colors.white))),
+                child: Text("Subscribe Now",
+                    style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16, color: Colors.white))),
           ),
         )
       ],
@@ -763,9 +772,194 @@ class _ProgramScreenDetailsState extends State<ProgramScreenDetails> {
               const SizedBox(
                 height: 10,
               ),
-              Text(
-                "Overall Rating",
-                style: GoogleFonts.poppins(fontSize: 16, fontWeight: FontWeight.w500, color: const Color(0xFF969AA3)),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "Overall Rating",
+                    style:
+                        GoogleFonts.poppins(fontSize: 16, fontWeight: FontWeight.w500, color: const Color(0xFF969AA3)),
+                  ),
+                  ElevatedButton(
+                    onPressed: () {
+                      showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return AlertDialog(
+                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
+                            title: Stack(
+                              children: [
+                                Column(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      "Rate your Experience",
+                                      style: GoogleFonts.poppins(fontWeight: FontWeight.w600, fontSize: 14),
+                                    ),
+                                    const SizedBox(
+                                      height: 10,
+                                    ),
+                                    RatingBar.builder(
+                                      initialRating: 4,
+                                      minRating: 1,
+                                      unratedColor: const Color(0xFF698EDE).withOpacity(.2),
+                                      itemCount: 5,
+                                      itemSize: 16.0,
+                                      itemPadding: const EdgeInsets.symmetric(horizontal: 4.0),
+                                      updateOnDrag: true,
+                                      itemBuilder: (context, index) => Image.asset(
+                                        AppAssets.rating,
+                                        color: AppTheme.topstar,
+                                      ),
+                                      onRatingUpdate: (ratingvalue) {},
+                                    ),
+                                    const SizedBox(
+                                      height: 20,
+                                    ),
+                                    Text("Review Title",
+                                        style: GoogleFonts.poppins(fontWeight: FontWeight.w500, fontSize: 14)),
+                                    TextFormField(
+                                      style: const TextStyle(color: Color(0xFF384953)),
+                                      cursorColor: AppTheme.primaryColor,
+                                      maxLength: 30,
+                                      decoration: InputDecoration(
+                                        hintText: '',
+                                        focusColor: Colors.grey,
+                                        hintStyle: GoogleFonts.poppins(
+                                          color: Colors.grey,
+                                          textStyle: GoogleFonts.poppins(
+                                            color: Colors.grey,
+                                            fontSize: 14,
+                                            fontWeight: FontWeight.w300,
+                                          ),
+                                          fontSize: 14,
+                                          // fontFamily: 'poppins',
+                                          fontWeight: FontWeight.w300,
+                                        ),
+                                        filled: true,
+                                        fillColor: Colors.white,
+                                      ),
+                                    ),
+                                    Text("Write Review",
+                                        style: GoogleFonts.poppins(fontWeight: FontWeight.w500, fontSize: 14)),
+                                    TextFormField(
+                                      style: const TextStyle(color: Color(0xFF384953)),
+                                      cursorColor: AppTheme.primaryColor,
+                                      decoration: InputDecoration(
+                                        hintText: '',
+                                        focusColor: Colors.grey,
+                                        hintStyle: GoogleFonts.poppins(
+                                          color: Colors.grey,
+                                          textStyle: GoogleFonts.poppins(
+                                            color: Colors.grey,
+                                            fontSize: 14,
+                                            fontWeight: FontWeight.w300,
+                                          ),
+                                          fontSize: 14,
+                                          // fontFamily: 'poppins',
+                                          fontWeight: FontWeight.w300,
+                                        ),
+                                        filled: true,
+                                        fillColor: Colors.white,
+                                      ),
+                                    ),
+                                    const SizedBox(height: 20,),
+                                    DottedBorder(
+                                      borderType: BorderType.RRect,
+                                      radius: const Radius.circular(2),
+                                      color: const Color(0xFF22C55E),
+                                      dashPattern: const [6],
+                                      strokeWidth: 1,
+                                      child: InkWell(
+                                        onTap: () {},
+                                        child: Container(
+                                          margin: const EdgeInsets.symmetric(
+                                              vertical: 8, horizontal: 8),
+                                          width: double.maxFinite,
+                                          height: 20,
+                                          alignment: Alignment.center,
+                                          child: const Row(
+                                            mainAxisAlignment: MainAxisAlignment.center,
+                                            children: [
+                                              Icon(Icons.file_copy_outlined,color: Color(0xff22C55E),),
+                                              SizedBox(width: 10,),
+                                              Text(
+                                                'Attach media',
+                                                style: TextStyle(
+                                                    fontSize: 14,
+                                                    color: Color(0xff22C55E),
+                                                    fontWeight: FontWeight.bold),
+                                                textAlign: TextAlign.center,
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    const SizedBox(height: 20,),
+                                     CommonButtonBlue(
+                                      title: 'submit',
+                                      onPressed: (){
+                                        Navigator.pop(context);
+                                        showDialog(
+                                          context: context,
+                                          builder: (BuildContext context) {
+                                            return AlertDialog(
+                                              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
+                                              title: Stack(
+                                                children: [
+                                                  Column(
+                                                    mainAxisAlignment: MainAxisAlignment.center,
+                                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                                    children: [
+                                                      Image.asset('assets/images/right.png'),
+                                                      Text(
+                                                        "Submitted Successfully!",
+                                                        style: GoogleFonts.montserrat(fontWeight: FontWeight.w600, fontSize: 16,color: Color(0xff0FA654)),
+                                                      ),
+                                                      Text(
+                                                        "Your review will be published once approved",
+                                                        style: GoogleFonts.montserrat(fontWeight: FontWeight.w400, fontSize: 12,color: Colors.black),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                  const Positioned(
+                                                      top: 0,
+                                                      right: 0,
+
+                                                      child: Icon(Icons.cancel_outlined))
+                                                ],
+                                              ),
+                                            );
+                                          },
+                                        );
+                                      },
+                                      margin: EdgeInsets.only(right: 100),)
+                                  ],
+                                ),
+                                const Positioned(
+                                  top: 0,
+                                    right: 0,
+
+                                    child: Icon(Icons.cancel_outlined))
+                              ],
+                            ),
+                          );
+                        },
+                      );
+                    },
+                    style: ElevatedButton.styleFrom(
+                        foregroundColor: const Color(0xff22C55E),
+                        backgroundColor: const Color(0xff22C55E),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(6),
+                        )),
+                    child: const Center(
+                        child: Text("Add Review",
+                            style: TextStyle(fontWeight: FontWeight.w500, fontSize: 14, color: Colors.white))),
+                  ),
+                ],
               ),
               Padding(
                   padding: const EdgeInsets.symmetric(vertical: 15.0, horizontal: 10),

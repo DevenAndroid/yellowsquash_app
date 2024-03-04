@@ -120,7 +120,8 @@ class _WorkShopsScreenState extends State<WorkShopsScreen> {
                             ),
                             blurRadius: 1,
                           ),
-                        ]),
+                        ]
+                    ),
                     child: Row(
                       children: [
                         const SizedBox(width: 10),
