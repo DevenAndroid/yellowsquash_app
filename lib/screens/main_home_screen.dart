@@ -8,11 +8,15 @@ import 'package:yellowsquash_app/screens/about_us.dart';
 import 'package:yellowsquash_app/screens/contactUSScreen.dart';
 import 'package:yellowsquash_app/screens/faqScreen.dart';
 import 'package:yellowsquash_app/screens/program_screens/program_list_screen.dart';
+import 'package:yellowsquash_app/screens/program_screens/raise_query_list_screen.dart';
+import 'package:yellowsquash_app/screens/program_screens/raise_query_screen.dart';
 import 'package:yellowsquash_app/screens/webinar_screen/workshopsScreen.dart';
 import '../controller/navbarcontroller.dart';
 import 'blog_screen/blog_list_screen.dart';
 import 'expert_screen/expert_list_screen.dart';
+import 'favourite_screen.dart';
 import 'group_screens/group_list.dart';
+import 'my_account_screen.dart';
 
 class MainHomeScreen extends StatefulWidget {
   const MainHomeScreen({super.key});
@@ -29,7 +33,7 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
     const ProgramListScreen(),
     const WorkShopsScreen(),
     const HomePageScreen(),
-    const HomePageScreen(),
+    const MyAccountScreen(),
   ];
   @override
   Widget build(BuildContext context) {
@@ -195,7 +199,9 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
                                   active: true,
                                   title: "Appointments".tr,
                                   icon: const ImageIcon(AssetImage(AppAssets.appointments)),
-                                  onTap: () {}),
+                                  onTap: () {
+                                    Get.toNamed(FavouriteScreen.favouriteScreen);
+                                  }),
                             ],
                           ),
 
@@ -235,7 +241,9 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
                               thickness: 1,
                               color: Colors.grey.shade300,
                             ),
-                            drawerTile1(active: true, title: "Legal".tr, onTap: () {}),
+                            drawerTile1(active: true, title: "Legal".tr, onTap: () {
+                              Get.toNamed(RaiseQueryList.raiseQueryList);
+                            }),
                             Divider(
                               thickness: 1,
                               color: Colors.grey.shade300,

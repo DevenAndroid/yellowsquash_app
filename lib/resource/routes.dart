@@ -4,9 +4,12 @@ import 'package:yellowsquash_app/screens/blog_screen/blog_details_screen.dart';
 import 'package:yellowsquash_app/screens/blog_screen/blog_list_screen.dart';
 import '../screens/expert_screen/expert_details_screen.dart';
 import '../screens/expert_screen/expert_list_screen.dart';
+import '../screens/favourite_screen.dart';
 import '../screens/group_screens/group_list.dart';
 import '../screens/program_screens/program_details_screen.dart';
 import '../screens/program_screens/program_list_screen.dart';
+import '../screens/program_screens/raise_query_list_screen.dart';
+import '../screens/program_screens/raise_query_screen.dart';
 import '../screens/splash_screen.dart';
 
 class MyRouter{
@@ -20,5 +23,8 @@ class MyRouter{
   GetPage(name: ExpertListScreen.expertListScreen, page: () => const ExpertListScreen()),
   GetPage(name: ExpertDetailsScreen.expertDetailsScreen, page: () => const ExpertDetailsScreen()),
   GetPage(name: GroupListScreen.groupListScreen, page: () => const GroupListScreen()),
+  GetPage(name: FavouriteScreen.favouriteScreen, page: () => const FavouriteScreen()),
+  GetPage(name: RaiseQuery.raiseQuery, page: () => const RaiseQuery()),
+  GetPage(name: RaiseQueryList.raiseQueryList, page: () => const RaiseQueryList()),
   ];
 }
