@@ -274,7 +274,6 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
                 child: Theme(
                     data: ThemeData(
                         splashColor: Colors.transparent,
-                        backgroundColor: Colors.transparent,
                         bottomNavigationBarTheme:
                             const BottomNavigationBarThemeData(backgroundColor: Colors.white, elevation: 0)),
                     child: BottomNavigationBar(

@@ -7,14 +7,14 @@ import '../resource/app_Assets.dart';
 import 'main_home_screen.dart';
 
 
-class SplashScreen extends StatefulWidget {
-  const SplashScreen({Key? key}) : super(key: key);
+class SplashScreens extends StatefulWidget {
+  const SplashScreens({Key? key}) : super(key: key);
 
   @override
-  State<SplashScreen> createState() => _SplashScreenState();
+  State<SplashScreens> createState() => _SplashScreensState();
 }
 
-class _SplashScreenState extends State<SplashScreen> {
+class _SplashScreensState extends State<SplashScreens> {
   @override
   void initState() {
     super.initState();
