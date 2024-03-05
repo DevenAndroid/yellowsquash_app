@@ -736,7 +736,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
                         style: TextStyle(fontSize: 12, fontWeight: FontWeight.w400, color: Color(0xff22C55E)),
                       ),
                       const Text(
-                        "Functional Medicine Program for Autism & Developmental...",
+                        "Functional Medicine Program for Autism & Developmental... ",
                         maxLines: 2,
                         style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400, color: Colors.black),
                       ),
