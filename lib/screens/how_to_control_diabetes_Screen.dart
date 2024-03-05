@@ -94,6 +94,7 @@ class _HowToControlDiabetesScreenState extends State<HowToControlDiabetesScreen>
                             const SizedBox(
                               width: 10,
                             ),
+
                             Expanded(
                               child: RichText(
                                   text: TextSpan(children: <TextSpan>[
