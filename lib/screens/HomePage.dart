@@ -6,7 +6,8 @@ import 'package:yellowsquash_app/resource/app_Assets.dart';
 import 'package:yellowsquash_app/screens/program_screens/program_details_screen.dart';
 import 'package:yellowsquash_app/screens/program_screens/program_list_screen.dart';
 import '../controller/navbarcontroller.dart';
-
+import 'blog_screen/blog_list_screen.dart';
+import 'expert_screen/expert_list_screen.dart';
 
 class HomePageScreen extends StatefulWidget {
   const HomePageScreen({super.key});
@@ -182,7 +183,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
                   ),
                   GestureDetector(
                     onTap: (){
-                      //Get.toNamed(ExpertListScreen.expertListScreen);
+                      Get.toNamed(ExpertListScreen.expertListScreen);
                     },
                     child: const Row(
                       children: [
@@ -272,7 +273,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
                     children: [
                       GestureDetector(
                         onTap: (){
-                          // Get.toNamed(BlogListScreen.blogsListScreen);
+                          Get.toNamed(BlogListScreen.blogsListScreen);
                         },
                         child: const Text(
                           "View All",
@@ -736,7 +737,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
                         style: TextStyle(fontSize: 12, fontWeight: FontWeight.w400, color: Color(0xff22C55E)),
                       ),
                       const Text(
-                        "Functional Medicine Program for Autism & Developmental... ",
+                        "Functional Medicine Program for Autism & Developmental...",
                         maxLines: 2,
                         style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400, color: Colors.black),
                       ),
