@@ -739,6 +739,7 @@ class _BlogDetailsScreenState extends State<BlogDetailsScreen> {
     );
   }
 
+
   Widget comments() {
     return Column(
       children: [
