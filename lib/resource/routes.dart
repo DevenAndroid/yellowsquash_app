@@ -15,7 +15,7 @@ import '../screens/splash_screen.dart';
 
 class MyRouter{
   static var route = [
-  GetPage(name: '/', page: () => const MyProgrammerScreen()),
+  GetPage(name: '/', page: () => const SplashScreen()),
   GetPage(name: ProgramListScreen.programListScreen, page: () => const ProgramListScreen()),
   GetPage(name: ProgramScreenDetails.programDetailsScreen, page: () => const ProgramScreenDetails()),
   GetPage(name: AboutUsScreen.aboutUsScreen, page: () => const AboutUsScreen())

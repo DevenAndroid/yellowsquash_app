@@ -1,19 +1,12 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:yellowsquash_app/resource/app_Assets.dart';
-import 'package:yellowsquash_app/screens/paymentMethods.dart';
 import 'package:yellowsquash_app/screens/program_screens/program_details_screen.dart';
 import 'package:yellowsquash_app/screens/program_screens/program_list_screen.dart';
-import 'package:yellowsquash_app/screens/selectSymptomsScreen.dart';
-import 'package:yellowsquash_app/screens/webinar_screen/bookConsultationScreen.dart';
 import '../controller/navbarcontroller.dart';
-import 'aboutSymptomTrackerScreen.dart';
-import 'bookConsultationScreen.dart';
-import 'checkoutScreen.dart';
-import 'how_to_control_diabetes_Screen.dart';
+
 
 class HomePageScreen extends StatefulWidget {
   const HomePageScreen({super.key});
@@ -47,24 +40,19 @@ class _HomePageScreenState extends State<HomePageScreen> {
               color: Colors.black,
             )),
         actions: [
-          GestureDetector(
-            onTap: (){
-              Get.to(const BookConsultationFirstScreen());
-            },
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: SizedBox(
-                height: 30,
-                child: Container(
-                  decoration: BoxDecoration(border: Border.all(color: Colors.black),borderRadius: BorderRadius.circular(100)),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(100),
-                    child: CachedNetworkImage(
-                      fit: BoxFit.cover,
-                      imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJiaZKjOQS7I-ftDQKzagCOWIZUonEoHS-p4OpngN4lg&s",
-                      errorWidget: (_, __, ___) => const Icon(Icons.person),
-                      placeholder: (_, __) => const SizedBox(),
-                    ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: SizedBox(
+              height: 30,
+              child: Container(
+                decoration: BoxDecoration(border: Border.all(color: Colors.black),borderRadius: BorderRadius.circular(100)),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(100),
+                  child: CachedNetworkImage(
+                    fit: BoxFit.cover,
+                    imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJiaZKjOQS7I-ftDQKzagCOWIZUonEoHS-p4OpngN4lg&s",
+                    errorWidget: (_, __, ___) => const Icon(Icons.person),
+                    placeholder: (_, __) => const SizedBox(),
                   ),
                 ),
               ),
@@ -182,33 +170,38 @@ class _HomePageScreenState extends State<HomePageScreen> {
               SizedBox(
                 height: size.height * .02,
               ),
-              const Row(
+              Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
+                  const Text(
                     "Top Experts",
                     style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.w600,
                     ),
                   ),
-                  Row(
-                    children: [
-                      Text(
-                        "View All",
-                        style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.w600,
-                            color: Color(0xff22C55E),
-                            decoration: TextDecoration.underline,
-                            decorationColor: Color(0xff22C55E)),
-                      ),
-                      Icon(
-                        Icons.arrow_forward_ios_rounded,
-                        color: Color(0xff22C55E),
-                        size: 14,
-                      )
-                    ],
+                  GestureDetector(
+                    onTap: (){
+                      //Get.toNamed(ExpertListScreen.expertListScreen);
+                    },
+                    child: const Row(
+                      children: [
+                        Text(
+                          "View All",
+                          style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.w600,
+                              color: Color(0xff22C55E),
+                              decoration: TextDecoration.underline,
+                              decorationColor: Color(0xff22C55E)),
+                        ),
+                        Icon(
+                          Icons.arrow_forward_ios_rounded,
+                          color: Color(0xff22C55E),
+                          size: 14,
+                        )
+                      ],
+                    ),
                   ),
                 ],
               ),
@@ -219,7 +212,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
               SizedBox(
                 height: size.height * .02,
               ),
-               Row(
+              Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   const Text(
@@ -265,10 +258,10 @@ class _HomePageScreenState extends State<HomePageScreen> {
               SizedBox(
                 height: size.height * .02,
               ),
-              const Row(
+              Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
+                  const Text(
                     "Latest Blogs",
                     style: TextStyle(
                       fontSize: 18,
@@ -277,16 +270,21 @@ class _HomePageScreenState extends State<HomePageScreen> {
                   ),
                   Row(
                     children: [
-                      Text(
-                        "View All",
-                        style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.w600,
-                            color: Color(0xff22C55E),
-                            decoration: TextDecoration.underline,
-                            decorationColor: Color(0xff22C55E)),
+                      GestureDetector(
+                        onTap: (){
+                         // Get.toNamed(BlogListScreen.blogsListScreen);
+                        },
+                        child: const Text(
+                          "View All",
+                          style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.w600,
+                              color: Color(0xff22C55E),
+                              decoration: TextDecoration.underline,
+                              decorationColor: Color(0xff22C55E)),
+                        ),
                       ),
-                      Icon(
+                      const Icon(
                         Icons.arrow_forward_ios_rounded,
                         color: Color(0xff22C55E),
                         size: 14,
@@ -414,7 +412,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
                           borderRadius: BorderRadius.circular(6),
                           child: CachedNetworkImage(
                             imageUrl:
-                                "https://media.istockphoto.com/id/515067687/photo/fagaras-mountains-romania-transylvania-region.jpg?s=2048x2048&w=is&k=20&c=8wJ56nL1trH7XM4_C86IWDsoQrzuj9ZyjP6Oe7SA6GA=",
+                            "https://media.istockphoto.com/id/515067687/photo/fagaras-mountains-romania-transylvania-region.jpg?s=2048x2048&w=is&k=20&c=8wJ56nL1trH7XM4_C86IWDsoQrzuj9ZyjP6Oe7SA6GA=",
                             fit: BoxFit.cover,
                             errorWidget: (_, __, ___) => const Icon(
                               Icons.category,
@@ -433,12 +431,12 @@ class _HomePageScreenState extends State<HomePageScreen> {
                               padding: EdgeInsets.symmetric(horizontal: 4.0, vertical: 2),
                               child: Center(
                                   child: Text(
-                                "By Dr Ashwani Garg",
-                                style: TextStyle(
-                                  fontSize: 10,
-                                  fontWeight: FontWeight.w400,
-                                ),
-                              )),
+                                    "By Dr Ashwani Garg",
+                                    style: TextStyle(
+                                      fontSize: 10,
+                                      fontWeight: FontWeight.w400,
+                                    ),
+                                  )),
                             ),
                           ))
                     ],
@@ -579,7 +577,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
                             borderRadius: BorderRadius.circular(6),
                             child: CachedNetworkImage(
                               imageUrl:
-                                  "https://media.istockphoto.com/id/515067687/photo/fagaras-mountains-romania-transylvania-region.jpg?s=2048x2048&w=is&k=20&c=8wJ56nL1trH7XM4_C86IWDsoQrzuj9ZyjP6Oe7SA6GA=",
+                              "https://media.istockphoto.com/id/515067687/photo/fagaras-mountains-romania-transylvania-region.jpg?s=2048x2048&w=is&k=20&c=8wJ56nL1trH7XM4_C86IWDsoQrzuj9ZyjP6Oe7SA6GA=",
                               fit: BoxFit.cover,
                               errorWidget: (_, __, ___) => const Icon(
                                 Icons.category,
@@ -599,12 +597,12 @@ class _HomePageScreenState extends State<HomePageScreen> {
                               padding: EdgeInsets.symmetric(horizontal: 4.0, vertical: 2),
                               child: Center(
                                   child: Text(
-                                "By Dr Ashwani Garg",
-                                style: TextStyle(
-                                  fontSize: 10,
-                                  fontWeight: FontWeight.w400,
-                                ),
-                              )),
+                                    "By Dr Ashwani Garg",
+                                    style: TextStyle(
+                                      fontSize: 10,
+                                      fontWeight: FontWeight.w400,
+                                    ),
+                                  )),
                             ),
                           ))
                     ],
@@ -715,7 +713,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
                     borderRadius: BorderRadius.circular(6),
                     child: CachedNetworkImage(
                       imageUrl:
-                          "https://media.istockphoto.com/id/515067687/photo/fagaras-mountains-romania-transylvania-region.jpg?s=2048x2048&w=is&k=20&c=8wJ56nL1trH7XM4_C86IWDsoQrzuj9ZyjP6Oe7SA6GA=",
+                      "https://media.istockphoto.com/id/515067687/photo/fagaras-mountains-romania-transylvania-region.jpg?s=2048x2048&w=is&k=20&c=8wJ56nL1trH7XM4_C86IWDsoQrzuj9ZyjP6Oe7SA6GA=",
                       fit: BoxFit.cover,
                       errorWidget: (_, __, ___) => const Icon(
                         Icons.category,
