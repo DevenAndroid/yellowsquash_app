@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:yellowsquash_app/screens/main_home_screen.dart';
+import 'package:yellowsquash_app/screens/resetPasswordOtpScreen.dart';
 import '../widgets/apptheme.dart';
 import '../widgets/common_text_field.dart';
 import 'SignupScreen.dart';
@@ -57,20 +58,25 @@ class _LoginScreenState extends State<LoginScreen> {
               const SizedBox(
                 height: 5,
               ),
-              Align(
-                alignment: Alignment.centerRight,
-                child: Text(
-                  'Forgot Password?',
-                  style: GoogleFonts.poppins(color: AppTheme.greenColor, fontSize: 12, fontWeight: FontWeight.w500),
+              GestureDetector(
+                onTap: () {
+                  Get.to(const ResetPasswordOtpScreen());
+                },
+                child: Align(
+                  alignment: Alignment.centerRight,
+                  child: Text(
+                    'Forgot Password?',
+                    style: GoogleFonts.poppins(color: AppTheme.greenColor, fontSize: 12, fontWeight: FontWeight.w500),
+                  ),
                 ),
               ),
               const SizedBox(
                 height: 20,
               ),
               CommonButtonBlue(
-                  title: 'Login',
-                onPressed: (){
-                    Get.offAll(()=>const MainHomeScreen());
+                title: 'Login',
+                onPressed: () {
+                  Get.offAll(() => const MainHomeScreen());
                 },
               ),
               SizedBox(
@@ -139,7 +145,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       TextSpan(
                           recognizer: TapGestureRecognizer()
                             ..onTap = () {
-                             Get.to(const SignUpScreen());
+                              Get.to(const SignUpScreen());
                             },
                           text: ' Sign Up',
                           style: const TextStyle(fontWeight: FontWeight.w500, color: AppTheme.greenColor, fontSize: 14)),

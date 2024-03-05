@@ -21,7 +21,9 @@ class _BookConsultationFirstScreenState extends State<BookConsultationFirstScree
           'Book Consultation',
           style: GoogleFonts.poppins(fontSize: 16, fontWeight: FontWeight.w400, color: AppTheme.blackcolor),
         ),
-        leading: const Icon(Icons.arrow_back),
+        iconTheme: const IconThemeData(
+            color: AppTheme.blackcolor
+        ),
       ),
       body: SingleChildScrollView(
         child: Padding(
