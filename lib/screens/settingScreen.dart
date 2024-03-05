@@ -19,9 +19,11 @@ class _SettingScreenState extends State<SettingScreen> {
         backgroundColor: const Color(0xffF9D121),
         title: Text(
           'Setting',
-          style: GoogleFonts.poppins(fontSize: 16, fontWeight: FontWeight.w400, color: AppTheme.blackcolor),
+          style: GoogleFonts.poppins(fontSize: 16, fontWeight: FontWeight.w500, color: AppTheme.blackcolor),
         ),
-        leading: const Icon(Icons.arrow_back),
+        iconTheme: const IconThemeData(
+          color: AppTheme.blackcolor
+        ),
       ),
       body: SingleChildScrollView(
         child: Column(

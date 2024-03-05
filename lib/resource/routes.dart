@@ -2,6 +2,7 @@ import 'package:get/get.dart';
 import 'package:yellowsquash_app/screens/about_us.dart';
 import 'package:yellowsquash_app/screens/blog_screen/blog_details_screen.dart';
 import 'package:yellowsquash_app/screens/blog_screen/blog_list_screen.dart';
+import 'package:yellowsquash_app/screens/program_screens/myProgrammerScreen.dart';
 import '../screens/expert_screen/expert_details_screen.dart';
 import '../screens/expert_screen/expert_list_screen.dart';
 import '../screens/favourite_screen.dart';
@@ -11,6 +12,7 @@ import '../screens/program_screens/program_list_screen.dart';
 import '../screens/program_screens/raise_query_list_screen.dart';
 import '../screens/program_screens/raise_query_screen.dart';
 import '../screens/splash_screen.dart';
+import '../screens/webinar_screen/my_webinar_screen.dart';
 
 
 class MyRouter{
@@ -27,5 +29,7 @@ class MyRouter{
   GetPage(name: FavouriteScreen.favouriteScreen, page: () => const FavouriteScreen()),
   GetPage(name: RaiseQuery.raiseQuery, page: () => const RaiseQuery()),
   GetPage(name: RaiseQueryList.raiseQueryList, page: () => const RaiseQueryList()),
+  GetPage(name: MyProgrammerScreen.myProgrammerScreen, page: () => const MyProgrammerScreen()),
+  GetPage(name: MyWebinarScreen.myWebinarScreen, page: () => const MyWebinarScreen()),
   ];
 }
