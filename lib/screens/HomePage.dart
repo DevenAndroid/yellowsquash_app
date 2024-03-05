@@ -272,7 +272,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
                     children: [
                       GestureDetector(
                         onTap: (){
-                         // Get.toNamed(BlogListScreen.blogsListScreen);
+                          // Get.toNamed(BlogListScreen.blogsListScreen);
                         },
                         child: const Text(
                           "View All",
