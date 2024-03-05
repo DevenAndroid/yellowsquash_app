@@ -12,6 +12,7 @@ import '../screens/program_screens/raise_query_list_screen.dart';
 import '../screens/program_screens/raise_query_screen.dart';
 import '../screens/splash_screen.dart';
 
+
 class MyRouter{
   static var route = [
   GetPage(name: '/', page: () => const SplashScreen()),
