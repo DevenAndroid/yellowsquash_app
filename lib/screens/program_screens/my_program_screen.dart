@@ -63,32 +63,32 @@ class _ProgramListScreenState extends State<ProgramListScreen> {
         ),
         body: SingleChildScrollView(
             child: Column(children: [
-          Padding(
-            padding: const EdgeInsets.only(left: 15, right: 15, top: 20),
-            child: RegisterTextFieldWidget(
-              hint: 'Search Here',
-              prefixIcon: IconButton(
-                icon: const Icon(
-                  Icons.search,
-                  color: AppTheme.greenColor,
+              Padding(
+                padding: const EdgeInsets.only(left: 15, right: 15, top: 20),
+                child: RegisterTextFieldWidget(
+                  hint: 'Search Here',
+                  prefixIcon: IconButton(
+                    icon: const Icon(
+                      Icons.search,
+                      color: AppTheme.greenColor,
+                    ),
+                    onPressed: () {},
+                  ),
+                  suffixIcon: IconButton(
+                    icon: const Icon(
+                      Icons.filter_list_rounded,
+                      color: AppTheme.greenColor,
+                    ),
+                    onPressed: () {},
+                  ),
                 ),
-                onPressed: () {},
               ),
-              suffixIcon: IconButton(
-                icon: const Icon(
-                  Icons.filter_list_rounded,
-                  color: AppTheme.greenColor,
-                ),
-                onPressed: () {},
+              const SizedBox(
+                height: 15,
               ),
-            ),
-          ),
-          const SizedBox(
-            height: 15,
-          ),
               category(),
               programList(size)
-        ])));
+            ])));
   }
 
   Widget category(){
@@ -279,26 +279,6 @@ class _ProgramListScreenState extends State<ProgramListScreen> {
                           ],
                         ),
                         const SizedBox(height: 5,),
-                        Container(
-                          height: size.height *.035,
-                          width: size.width *.45,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(6),
-                          ),
-                          child: ElevatedButton(
-                            onPressed: (){
-
-                            },
-                            style: ElevatedButton.styleFrom(
-                                foregroundColor: const Color(0xff22C55E),
-                                backgroundColor: const Color(0xff22C55E),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(6),
-                                )
-                            ),
-                            child: const Center(child: Text("Subscribe Now", style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16, color: Colors.white))),
-                          ),
-                        )
                       ],
                     ),
                   ),

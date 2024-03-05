@@ -168,7 +168,7 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
                                   title: "Programs".tr,
                                   icon: const ImageIcon(AssetImage(AppAssets.program)),
                                   onTap: () {
-                                    bottomController.changePage(0);
+                                    bottomController.changePage(1);
                                     Get.back();
                                   }),
                               drawerTile(

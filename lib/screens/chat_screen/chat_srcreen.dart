@@ -7,15 +7,16 @@ import '../../controller/navbarcontroller.dart';
 import '../../widgets/apptheme.dart';
 import '../../widgets/common_text_field.dart';
 
-class ProgramListScreen extends StatefulWidget {
-  const ProgramListScreen({super.key});
-  static String programListScreen = "/programListScreen";
+class ChatScreen extends StatefulWidget {
+  const ChatScreen({super.key});
+
   @override
-  State<ProgramListScreen> createState() => _ProgramListScreenState();
+  State<ChatScreen> createState() => _ChatScreenState();
 }
 
-class _ProgramListScreenState extends State<ProgramListScreen> {
+class _ChatScreenState extends State<ChatScreen> {
   final bottomController = Get.put(BottomNavController());
+
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +27,7 @@ class _ProgramListScreenState extends State<ProgramListScreen> {
           elevation: 10,
           backgroundColor: Colors.white,
           shadowColor: Colors.grey.withOpacity(.2),
-          title: const Text("Programs", style: TextStyle(fontWeight: FontWeight.w600,color: AppTheme.blackcolor)),
+          title: const Text("Programs", style: TextStyle(fontWeight: FontWeight.w600, color: AppTheme.blackcolor)),
           centerTitle: true,
           leading: GestureDetector(
               behavior: HitTestBehavior.translucent,
@@ -37,7 +38,7 @@ class _ProgramListScreenState extends State<ProgramListScreen> {
                 Icons.menu,
                 color: Colors.black,
               )),
-          actions:  [
+          actions: [
             const Icon(
               Icons.notifications_none,
               color: Colors.black,
@@ -86,12 +87,12 @@ class _ProgramListScreenState extends State<ProgramListScreen> {
           const SizedBox(
             height: 15,
           ),
-              category(),
-              programList(size)
+          category(),
+          programList(size)
         ])));
   }
 
-  Widget category(){
+  Widget category() {
     return Padding(
       padding: const EdgeInsets.only(left: 10),
       child: Column(children: [
@@ -113,8 +114,7 @@ class _ProgramListScreenState extends State<ProgramListScreen> {
                                   margin: const EdgeInsets.only(left: 5, right: 5),
                                   width: 70,
                                   decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(7),
-                                      border: Border.all(color: AppTheme.greenColor)),
+                                      borderRadius: BorderRadius.circular(7), border: Border.all(color: AppTheme.greenColor)),
                                   child: const Center(child: Text('scrollable')))),
                         ],
                       ),
@@ -126,14 +126,15 @@ class _ProgramListScreenState extends State<ProgramListScreen> {
       ]),
     );
   }
-  Widget programList(size){
+
+  Widget programList(size) {
     return ListView.builder(
         physics: const NeverScrollableScrollPhysics(),
         itemCount: 10,
         shrinkWrap: true,
         itemBuilder: (context, index) {
           return GestureDetector(
-            onTap: (){
+            onTap: () {
               Get.toNamed(ProgramScreenDetails.programDetailsScreen);
             },
             child: Container(
@@ -177,7 +178,7 @@ class _ProgramListScreenState extends State<ProgramListScreen> {
                           borderRadius: const BorderRadius.only(topLeft: Radius.circular(10), topRight: Radius.circular(10)),
                           child: CachedNetworkImage(
                             imageUrl:
-                            "https://media.istockphoto.com/id/515067687/photo/fagaras-mountains-romania-transylvania-region.jpg?s=2048x2048&w=is&k=20&c=8wJ56nL1trH7XM4_C86IWDsoQrzuj9ZyjP6Oe7SA6GA=",
+                                "https://media.istockphoto.com/id/515067687/photo/fagaras-mountains-romania-transylvania-region.jpg?s=2048x2048&w=is&k=20&c=8wJ56nL1trH7XM4_C86IWDsoQrzuj9ZyjP6Oe7SA6GA=",
                             fit: BoxFit.cover,
                             errorWidget: (_, __, ___) => const Icon(
                               Icons.category,
@@ -196,12 +197,12 @@ class _ProgramListScreenState extends State<ProgramListScreen> {
                               padding: EdgeInsets.symmetric(horizontal: 4.0, vertical: 2),
                               child: Center(
                                   child: Text(
-                                    "By Dr Ashwani Garg",
-                                    style: TextStyle(
-                                      fontSize: 10,
-                                      fontWeight: FontWeight.w400,
-                                    ),
-                                  )),
+                                "By Dr Ashwani Garg",
+                                style: TextStyle(
+                                  fontSize: 10,
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              )),
                             ),
                           ))
                     ],
@@ -278,27 +279,9 @@ class _ProgramListScreenState extends State<ProgramListScreen> {
                             ),
                           ],
                         ),
-                        const SizedBox(height: 5,),
-                        Container(
-                          height: size.height *.035,
-                          width: size.width *.45,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(6),
-                          ),
-                          child: ElevatedButton(
-                            onPressed: (){
-
-                            },
-                            style: ElevatedButton.styleFrom(
-                                foregroundColor: const Color(0xff22C55E),
-                                backgroundColor: const Color(0xff22C55E),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(6),
-                                )
-                            ),
-                            child: const Center(child: Text("Subscribe Now", style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16, color: Colors.white))),
-                          ),
-                        )
+                        const SizedBox(
+                          height: 5,
+                        ),
                       ],
                     ),
                   ),
@@ -309,6 +292,4 @@ class _ProgramListScreenState extends State<ProgramListScreen> {
           );
         });
   }
-
-
 }
